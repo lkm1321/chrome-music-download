@@ -1,21 +1,65 @@
 
 try {
-
-	document.querySelector('#thisVideo').addEventListener('click', thisVideoCallback); 
+	document.querySelector('#download-button').addEventListener('click', downloadButtonCallback); 
+	window.onload = popupOpenCallback; 
 }
 catch (err) {
 	console.error(err); 
 }
 
+var apiTargetUrl = null; 
 
-function thisVideoCallback(){
+function popupOpenCallback(){
+	// Fetch current URL, check if valid YouTube URL
+	// "use strict"; 
+
+	// const youtubeUrl = 'https://www.youtube.com/watch?v='; 
+	
+	// // Get the current tab. 
+	// chrome.tabs.query({
+	// 	'active': true, 
+	// 	'lastFocusedWindow': true
+	// }, 
+	// // Callback 
+	// (tabs) => {
+		
+	// 	let url = tabs[0].url; 
+		
+	// 	// Is a valid URL. 
+	// 	if ( url.includes(youtubeUrl) ) {
+	// 		var xhr = new XMLHttpRequest(); 
+	// 		xhr.open("GET",)
+	// 	} 
+	// 	// Is not a valid URL
+	// 	else {
+
+	// 	}
+
+	// });
+
+}
+
+function getApiResp(targetUrl){
+	const apiUrl = 'https://www.youtubeinmp3.com/fetch/?format=JSON&video='; 
+	var xhr = newXMLHttpRequest(); 
+	xhr.open("GET", apiUrl + targetUrl); 
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4)
+		{
+			return JSON.parse(xhr.response); 
+		}
+	};
+	xhr.send();  
+}
+
+function downloadButtonCallback(){
 	// console.log
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, (tabs) => {
-		var url = tabs[0].url; 
-		// var youtubeUrl = '\bhttps://www.youtube.com/watch?v=+[A-Z0-9]'; 
-		
-		const youtubeUrl = 'https://www.youtube.com/watch?v='; 
-		const apiUrl = 'https://www.youtubeinmp3.com/fetch/?format=JSON&video='; 
+	var url = tabs[0].url; 
+	// var youtubeUrl = '\bhttps://www.youtube.com/watch?v=+[A-Z0-9]'; 
+	
+	const youtubeUrl = 'https://www.youtube.com/watch?v='; 
+	const apiUrl = 'https://www.youtubeinmp3.com/fetch/?format=JSON&video='; 
 
 		if ( url.includes(youtubeUrl) ){
 			// logOnPage('This is a youtube url!');
@@ -32,6 +76,8 @@ function thisVideoCallback(){
 						filename: resp.title + '.mp3', 
 						saveAs: true
 					});
+
+					logOnBox('Done! Enjoy :D'); 
 					// console.log(resp.link);
 					// console.log(resp);
 					// var getRequest = new XMLHttpRequest(); 
@@ -45,14 +91,14 @@ function thisVideoCallback(){
 				}
 			}
 			xhr.send(); 
-
+			logOnBox('Sending download request...')
 		} else {
-			logOnPage('This is not a youtube url!'); 
+			logOnBox('This is not a youtube url!'); 
 		}
 	});
 }
 
-function logOnPage(text) {
+function logOnBox(text) {
 	let onPageConsole = document.querySelector('#onPageConsole'); 
-	onPageConsole.innerText += 'NEW: ' + text; 
+	onPageConsole.innerHTML = text; 
 }
