@@ -1,0 +1,23 @@
+{
+  "name": "chrome-music-extension",
+  "description": "download music as mp3 from youtube",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "popup.html",
+  "dependencies": {
+    "googleapis": "^15.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lkm1321/chrome-music-download.git"
+  },
+  "author": "Brian Lee",
+  "bugs": {
+    "url": "https://github.com/lkm1321/chrome-music-download/issues"
+  },
+  "homepage": "https://github.com/lkm1321/chrome-music-download#readme"
+}
