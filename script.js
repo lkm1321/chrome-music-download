@@ -79,7 +79,7 @@ function downloadButtonCallback(){
 					chrome.downloads.download({
 						url: resp.link, 
 						filename: resp.title + '.mp3', 
-						saveAs: true
+						saveAs: false
 					});
 
 					logOnBox('Done! Enjoy :D'); 
