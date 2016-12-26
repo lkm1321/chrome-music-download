@@ -1,6 +1,6 @@
 
 try {
-	document.querySelector('#download-button').addEventListener('click', downloadButtonCallback); 
+	// @TODO: replace with a jQuery call. 
 	window.onload = popupOpenCallback; 
 }
 catch (err) {
@@ -10,6 +10,8 @@ catch (err) {
 var apiTargetUrl = null; 
 
 function popupOpenCallback(){
+
+	document.querySelector('#download-button').addEventListener('click', downloadButtonCallback); 
 	// Fetch current URL, check if valid YouTube URL
 	// "use strict"; 
 
@@ -39,6 +41,9 @@ function popupOpenCallback(){
 
 }
 
+
+// @TODO: not used yet. Refactor. 
+// 
 function getApiResp(targetUrl){
 	const apiUrl = 'https://www.youtubeinmp3.com/fetch/?format=JSON&video='; 
 	var xhr = newXMLHttpRequest(); 
