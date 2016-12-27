@@ -1,21 +1,28 @@
 <!doctype html>
-<html> 
-	<head> 
-	<link rel="stylesheet" href="stylesheet.css">
-	</head>
-	<body>
-		<div id>
-			<p id='onPageConsole'></p>
-		</div>
-		<div id='buttons'>
-			<input type="button" value="" id='download-button' />
-			
-		<!-- 	Not used yet! -->
-		<!--	<input type="button" value="" id='spotify-button' /> -->
-			
-		</div>
+<html>
 
-		<script src='script.js'> </script>
+<head>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="jquery-3.1.1.min.js"></script>
+</head>
 
-	</body>
+<body>
+    <div class="loading-view"></div>
+
+    <div class="meta-view">
+        <p id='onPageConsole'></p>
+    </div>
+
+    <div class="failed-view">
+
+    </div>
+
+    <div class="download-view">
+        <input type="button" class="download-view" id="download-button" />
+    </div>
+
+    <script src='script.js'></script>
+
+</body>
+
 </html>

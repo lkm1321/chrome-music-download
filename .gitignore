@@ -1,3 +1,7 @@
 /node_modules/
 /icons/lib
 /build
+/.vscode
+/*.log
+/jquery-3.1.1.min.js
+/reference

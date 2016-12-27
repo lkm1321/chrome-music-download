@@ -8,6 +8,8 @@
  *  
  *  @TODO: Add Spotify support
  *  @TODO: Add Google drive support
+ *  @TODO: Multiple files from a list. 
+ *  @TODO: YouTube URL parser. 
  *  
  */
 
@@ -23,10 +25,6 @@ class EventsController extends EventEmitter{
 	};
 
 const eventsController = new EventsController(); 
-eventsController.on('loading-done', function (apiResponse) {
-	console.log(apiResponse); 
-}); 
-
 
 $(document).ready(function(){
 
@@ -55,6 +53,7 @@ $(document).ready(function(){
 					
 					if (err) throw err; 
 					apiResponse = JSON.parse(data);
+					eventController.emit
 
 				}));
 
@@ -68,14 +67,20 @@ $(document).ready(function(){
 
 });
 
+/**
+ * 	This controls the loading done event. 
+ */
+eventsController.on('loading-done', function (apiResponse) {
+	console.log(apiResponse); 
+}); 
+
 function errorCallback(err){
 	console.error(err); 
 	throw err; 
 }
 
-
-function pipeUrlFileTo(url, buffer){
-	http.get(url, (res) => {
-		res.pipe(buffer); 
-	}).on('error', (err) => {throw err;});
-}
+// function pipeUrlFileTo(url, buffer){
+// 	http.get(url, (res) => {
+// 		res.pipe(buffer); 
+// 	}).on('error', (err) => {throw err;});
+// }

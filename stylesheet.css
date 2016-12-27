@@ -1,10 +1,12 @@
-body{
-	font-family: sans-serif;
-	width: 200px;
-	height: 150px;
-	background-color: white;
-	color: gray;
+body {
+    font-family: sans-serif;
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    color: gray;
+    vertical-align: middle;
 }
+
 
 /*.button{
 	background-color: transparent;
@@ -18,13 +20,49 @@ body{
 }*/
 
 #download-button {
-    background-image: url('./icons/download.png'); /* 16px x 16px */
-    background-color: transparent; /* make the button transparent */
-    background-repeat: no-repeat;  /* make the background image appear only once */
-    background-position: center;  /* equivalent to 'top left' */
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height: 70px;           /* make this the size of your image */
-    padding-left: 70px;     /* make text start to the right of the image */
-    vertical-align: middle; /* align the text vertically centered */
+    background-image: url('./icons/download.png');
+    /* 16px x 16px */
+    background-color: transparent;
+    /* make the button transparent */
+    background-repeat: no-repeat;
+    /* make the background image appear only once */
+    background-position: center;
+    /* place on center */
+    border: none;
+    /* assuming we don't want any borders */
+    cursor: pointer;
+    /* make the cursor like hovering over an <a> element */
+    height: 70px;
+    /* make this the size of your image */
+    padding-left: 70px;
+    /* make text start to the right of the image */
+    vertical-align: middle;
+    /* align the text vertically centered */
+    /* visibility: hidden; */
+    /* Use class visibility */
+}
+
+.download-view {
+    /*visibility: hidden;*/
+    /* Use jQuerry hide and show*/
+}
+
+.loading-view {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
